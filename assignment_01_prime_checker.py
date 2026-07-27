@@ -34,4 +34,23 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+c
+
+
+def primeNumber(N):
+    if N % 2 == 0:
+       return False
+    if N < 2:
+        return False
+    for i in range(3, int(N**0.5) + 1, 2):
+        if N % i == 0:
+            return False
+    return True
+
+prime = int(input("Enter a number: "))
+if primeNumber(prime):
+    print(f"{prime} is a prime number.")
+else:
+    print(f"{prime} is NOT a prime number.")
+
 
