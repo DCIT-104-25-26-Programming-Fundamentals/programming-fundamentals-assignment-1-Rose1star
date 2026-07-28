@@ -60,3 +60,73 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def get_matrix (num_rows, num_cols):
+  grid = []
+  for r in range(num_rows):
+    line = input(f"Enter row {r + 1}: ")
+    entries = line.split()
+    row_data = []
+    for entry in entries:
+      row_data.append(int(entry))
+    grid.append(row_data)
+  return grid
+
+def display_matrix (grid):
+  for row_data in grid:
+    text = ""
+    for value in row_data:
+      text = text + str(value) + "\t"
+    print(text)
+
+def transpose (grid, num_rows, num_cols):
+  flipped = []
+  for c in range(num_cols):
+    new_row = []
+    for r in range(num_rows):
+      new_row.append(grid[r][c])
+    flipped.append(new_row)
+  return flipped
+
+def add_grids (grid_a, grid_b, num_rows, num_cols):
+  combined = []
+  for r in range(num_rows):
+    new_row = []
+    for c in range(num_cols):
+      new_row.append(grid_a[r][c] + grid_b[r][c])
+    combined.append(new_row)
+  return combined
+
+def multiply_grids (grid_a, grid_b, rows_a, shared_dim, cols_b):
+  product = []
+  for r in range(rows_a):
+    new_row = []
+    for c in range(cols_b):
+      cell_sum = 0
+      for k in range(shared_dim):
+        cell_sum = cell_sum + grid_a[r][k] * grid_b[k][c]
+      new_row.append(cell_sum)
+    product.append(new_row)
+  return product
+
+def main ():
+  print("PART A: Transpose a Matrix")
+  r1 = int(input("Enter number of rows: "))
+  c1 = int(input("Enter number of columns: "))
+  original = get_matrix(r1, c1)
+  print("Original Matrix:")
+  display_matrix(original)
+  flipped = transpose(original, r1, c1)
+  print("Transposed Matrix:")
+  display_matrix(flipped)
+
+  print()
+  print("PART B: Add Two Matrices")
+  r2 = int(input("Enter number of rows: "))
+  c2 = int(input("Enter number of columns: "))
+  print("Enter Matrix A:")
+  grid_a = get_matrix(r2, c2)
+  print("Enter Matrix B:")
+  grid_b = get_matrix(r2, c2)
+  total_grid = add_grids(grid_a, grid_b, r2, c2)
+  print("Sum Matrix:")
+  display_matrix(total_grid)
