@@ -55,21 +55,61 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
-def timesTable(n):
-    try:
-        n = int(input("Enter a number: "))
-        if n <= 0:
-            print("Error! Number must be positive")
-            return
+# =============================================================================
+# PROGRAMMING FUNDAMENTALS — Assignment 6
+# Topic: Loops and Functions
+# =============================================================================
 
-        print(f"Multiplication Table for {n}:")
-        i = 1
-        while i <= 12:
-            result = n * i
-            print(f"{n} x {i} = {result}")
-            i += 1
-    except ValueError:
-        print("Error! Please enter a valid integer.")
+def print_table(n):
+    """
+    Prints the multiplication table for a single number 'n' from 1 to 12.
+    """
+    print(f"\nMultiplication Table for {n}:")
+    for i in range(1, 13):
+        print(f"{n:<2} x {i:>2} = {n * i}")
 
-Find_multiples = int(input("Enter a number: "))
-timesTable(Find_multiples)
+
+def part_a():
+    """
+    Handles Part A: Single Table input validation and execution.
+    """
+    user_input = input("Enter a positive integer for Part A: ")
+    
+   
+    if not user_input.isdigit() or int(user_input) <= 0:
+        print("Error: Please enter a positive integer.")
+        return
+        
+    number = int(user_input)
+    print_table(number)
+
+
+def part_b():
+    """
+    Handles Part B: Tables from 1 to N input validation and execution.
+    """
+    user_input = input("\nEnter a number N for Part B (Tables 1 to N): ")
+    
+
+    if not user_input.isdigit() or int(user_input) <= 0:
+        print("Error: Please enter a positive integer.")
+        return
+        
+    limit = int(user_input)
+    
+    for num in range(1, limit + 1):
+        print_table(num)
+        if num < limit:
+            print("-" * 27) 
+
+
+def main():
+    print("--- PART A ---")
+    part_a()
+    
+    print("\n--- PART B ---")
+    part_b()
+
+
+if __name__ == "__main__":
+    main()

@@ -130,3 +130,18 @@ def main ():
   total_grid = add_grids(grid_a, grid_b, r2, c2)
   print("Sum Matrix:")
   display_matrix(total_grid)
+
+  print()
+  print("PART C: Multiply Two Matrices")
+  rows_a = int(input("Enter rows of Matrix A: "))
+  shared_dim = int(input("Enter columns of Matrix A (= rows of Matrix B): "))
+  cols_b = int(input("Enter columns of Matrix B: "))
+  print("Enter Matrix A:")
+  grid_a2 = get_matrix(rows_a, shared_dim)
+  print("Enter Matrix B:")
+  grid_b2 = get_matrix(shared_dim, cols_b)
+  final_grid = multiply_grids(grid_a2, grid_b2, rows_a, shared_dim, cols_b)
+  print("Product Matrix:")
+  display_matrix(final_grid)
+
+main()
