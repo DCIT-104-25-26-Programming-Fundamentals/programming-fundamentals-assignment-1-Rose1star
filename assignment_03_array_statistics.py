@@ -39,3 +39,70 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+
+def get_numbers(n):
+    numbers = []
+    for i in range(n):
+        score = float(input(f"Enter number {i + 1}: "))
+        if score.is_integer():
+            score = int(score)
+        numbers.append(score)
+    return numbers
+
+
+def findSum(numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+
+
+def findAvg(numbers):
+    total = findSum(numbers)
+    return total / len(numbers)
+
+
+def findMax(numbers):
+    largest = numbers[0]
+    for num in numbers[1:]:
+        if num > largest:
+            largest = num
+    return largest
+
+
+def findMin(numbers):
+    smallest = numbers[0]
+    for num in numbers[1:]:
+        if num < smallest:
+            smallest = num
+    return smallest
+
+
+def main():
+    try:
+        n = int(input("How many numbers? "))
+    except ValueError:
+        print("Error: Please enter a valid integer.")
+        return
+
+    if n <= 0:
+        print("Error: Please enter a positive integer.")
+        return
+
+    numbers = get_numbers(n)
+
+    total = findSum(numbers)
+    average = findAvg(numbers)
+    maximum = findMax(numbers)
+    minimum = findMin(numbers)
+
+
+    print("\nResults:")
+    print(f"Sum:     {total}")
+    print(f"Average: {average}")
+    print(f"Maximum: {maximum}")
+    print(f"Minimum: {minimum}")
+
+
+if __name__ == "__main__":
+    main()
