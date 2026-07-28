@@ -68,3 +68,92 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def do_add (x, y):
+  return x + y
+
+def do_subtract (x, y):
+  return x - y
+
+def do_multiply (x, y):
+  return x * y
+
+def do_divide (x, y):
+  if y == 0:
+    return None
+  return round(x / y, 2)
+
+def do_modulus (x, y):
+  if y == 0:
+    return None
+  return x % y
+
+def do_exponent (x, y):
+  return x ** y
+
+def collect_inputs ():
+  val1_input = input("Enter first number : ")
+  val2_input = input("Enter second number: ")
+  val1 = float(val1_input)
+  val2 = float(val2_input)
+  return val1, val2
+
+def show_menu ():
+  print("============================")
+  print("     SIMPLE CALCULATOR")
+  print("============================")
+  print("1. Addition")
+  print("2. Subtraction")
+  print("3. Multiplication")
+  print("4. Division")
+  print("5. Modulus")
+  print("6. Exponentiation")
+  print("7. Quit")
+
+def main ():
+  active = True
+
+  while active:
+    show_menu()
+    option = input("Select an operation (1-7): ")
+
+    if option == "7":
+      print("Goodbye!")
+      active = False
+      print()
+      continue
+
+    if option not in ["1", "2", "3", "4", "5", "6"]:
+      print("Error: Please enter a number between 1 and 7.")
+      print()
+      continue
+
+    val1, val2 = collect_inputs()
+
+    if option == "1":
+      outcome = do_add(val1, val2)
+      print(f"Result: {val1} + {val2} = {outcome}")
+    elif option == "2":
+      outcome = do_subtract(val1, val2)
+      print(f"Result: {val1} - {val2} = {outcome}")
+    elif option == "3":
+      outcome = do_multiply(val1, val2)
+      print(f"Result: {val1} * {val2} = {outcome}")
+    elif option == "4":
+      outcome = do_divide(val1, val2)
+      if outcome is None:
+        print("Error: Cannot divide by zero.")
+      else:
+        print(f"Result: {val1} / {val2} = {outcome}")
+    elif option == "5":
+      outcome = do_modulus(val1, val2)
+      if outcome is None:
+        print("Error: Cannot divide by zero.")
+      else:
+        print(f"Result: {val1} % {val2} = {outcome}")
+    elif option == "6":
+      outcome = do_exponent(val1, val2)
+      print(f"Result: {val1} ** {val2} = {outcome}")
+
+    print()
+
+main()
