@@ -45,5 +45,24 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
-
-
+def your_grade(score):
+    if score < 0 or score > 100:
+        return None
+        print("Error: Score must be between 0 and 100.")
+    elif score >= 80:
+        return "Grade A" 
+    elif score >= 70:
+        return " Grade B"
+    elif score >= 60:
+        return "Grade C"
+    elif score >= 50:
+        return "Grade D"
+    else:
+        return "Grade F"
+    
+Score = int(input("Enter the score(0-100): "))
+grade = your_grade(Score)
+if grade:
+    print(f"Your grade is: {grade}")
+else:
+    print("Error: Score must be between 0 and 100.")
