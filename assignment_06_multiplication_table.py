@@ -55,3 +55,21 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def timesTable(n):
+    try:
+        n = int(input("Enter a number: "))
+        if n <= 0:
+            print("Error! Number must be positive")
+            return
+
+        print(f"Multiplication Table for {n}:")
+        i = 1
+        while i <= 12:
+            result = n * i
+            print(f"{n} x {i} = {result}")
+            i += 1
+    except ValueError:
+        print("Error! Please enter a valid integer.")
+
+Find_multiples = int(input("Enter a number: "))
+timesTable(Find_multiples)
