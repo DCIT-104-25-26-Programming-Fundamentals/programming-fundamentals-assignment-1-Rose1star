@@ -53,13 +53,12 @@
 # - Each operation must be in its own function (see scaffold below).
 # - Display each matrix in a neat, aligned grid format.
 # - Tip: Complete Part A first, then Parts B and C.
-#
+#-----------------------------------------------------------------------------
 
 #
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
-
 def get_matrix (num_rows, num_cols):
   grid = []
   for r in range(num_rows):
